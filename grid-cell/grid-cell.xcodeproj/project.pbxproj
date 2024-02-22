@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		9CBBC4A62B8724870000EE94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC4A52B8724870000EE94 /* AppDelegate.swift */; };
 		9CBBC4A82B8724870000EE94 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC4A72B8724870000EE94 /* SceneDelegate.swift */; };
-		9CBBC4AA2B8724870000EE94 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC4A92B8724870000EE94 /* ViewController.swift */; };
 		9CBBC4AD2B8724870000EE94 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CBBC4AB2B8724870000EE94 /* Main.storyboard */; };
 		9CBBC4AF2B8724890000EE94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CBBC4AE2B8724890000EE94 /* Assets.xcassets */; };
 		9CBBC4B22B8724890000EE94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CBBC4B02B8724890000EE94 /* LaunchScreen.storyboard */; };
 		9CBBC4BD2B8724890000EE94 /* grid_cellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC4BC2B8724890000EE94 /* grid_cellTests.swift */; };
 		9CBBC4C72B8724890000EE94 /* grid_cellUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC4C62B8724890000EE94 /* grid_cellUITests.swift */; };
 		9CBBC4C92B8724890000EE94 /* grid_cellUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC4C82B8724890000EE94 /* grid_cellUITestsLaunchTests.swift */; };
+		9CBBC4D62B8726550000EE94 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC4D52B8726550000EE94 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +39,6 @@
 		9CBBC4A22B8724870000EE94 /* grid-cell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "grid-cell.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CBBC4A52B8724870000EE94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CBBC4A72B8724870000EE94 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9CBBC4A92B8724870000EE94 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9CBBC4AC2B8724870000EE94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9CBBC4AE2B8724890000EE94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9CBBC4B12B8724890000EE94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +48,7 @@
 		9CBBC4C22B8724890000EE94 /* grid-cellUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "grid-cellUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CBBC4C62B8724890000EE94 /* grid_cellUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = grid_cellUITests.swift; sourceTree = "<group>"; };
 		9CBBC4C82B8724890000EE94 /* grid_cellUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = grid_cellUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9CBBC4D52B8726550000EE94 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +101,11 @@
 			children = (
 				9CBBC4A52B8724870000EE94 /* AppDelegate.swift */,
 				9CBBC4A72B8724870000EE94 /* SceneDelegate.swift */,
-				9CBBC4A92B8724870000EE94 /* ViewController.swift */,
 				9CBBC4AB2B8724870000EE94 /* Main.storyboard */,
 				9CBBC4AE2B8724890000EE94 /* Assets.xcassets */,
 				9CBBC4B02B8724890000EE94 /* LaunchScreen.storyboard */,
 				9CBBC4B32B8724890000EE94 /* Info.plist */,
+				9CBBC4D52B8726550000EE94 /* HomeViewController.swift */,
 			);
 			path = "grid-cell";
 			sourceTree = "<group>";
@@ -258,9 +258,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CBBC4AA2B8724870000EE94 /* ViewController.swift in Sources */,
 				9CBBC4A62B8724870000EE94 /* AppDelegate.swift in Sources */,
 				9CBBC4A82B8724870000EE94 /* SceneDelegate.swift in Sources */,
+				9CBBC4D62B8726550000EE94 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
