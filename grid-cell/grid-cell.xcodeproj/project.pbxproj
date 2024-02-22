@@ -27,6 +27,7 @@
 		9CBBC4F72B875EC80000EE94 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC4F62B875EC80000EE94 /* HTTPClient.swift */; };
 		9CBBC4F92B875EFD0000EE94 /* AlamofireHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC4F82B875EFD0000EE94 /* AlamofireHTTPClient.swift */; };
 		9CBBC4FB2B875F8B0000EE94 /* GridLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC4FA2B875F8B0000EE94 /* GridLoader.swift */; };
+		9CBBC4FD2B87601F0000EE94 /* RemoteGridLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC4FC2B87601F0000EE94 /* RemoteGridLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		9CBBC4F62B875EC80000EE94 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		9CBBC4F82B875EFD0000EE94 /* AlamofireHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireHTTPClient.swift; sourceTree = "<group>"; };
 		9CBBC4FA2B875F8B0000EE94 /* GridLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLoader.swift; sourceTree = "<group>"; };
+		9CBBC4FC2B87601F0000EE94 /* RemoteGridLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteGridLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 				9CBBC4F82B875EFD0000EE94 /* AlamofireHTTPClient.swift */,
 				9CBBC4F62B875EC80000EE94 /* HTTPClient.swift */,
 				9CBBC4FA2B875F8B0000EE94 /* GridLoader.swift */,
+				9CBBC4FC2B87601F0000EE94 /* RemoteGridLoader.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CBBC4FD2B87601F0000EE94 /* RemoteGridLoader.swift in Sources */,
 				9CBBC4EE2B873F410000EE94 /* GridItemCell.swift in Sources */,
 				9CBBC4E82B8732B40000EE94 /* GridViewController.swift in Sources */,
 				9CBBC4A62B8724870000EE94 /* AppDelegate.swift in Sources */,
