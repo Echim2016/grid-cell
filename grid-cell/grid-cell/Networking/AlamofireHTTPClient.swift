@@ -12,10 +12,10 @@ final class AlamofireHTTPClient: HTTPClient {
   func get(from url: URL, completion: @escaping (HTTPClient.Result) -> Void) {
     AF.request(url)
       .response { response in
-        if let data = response.data {
-          completion(.success(data))
-        } else if let error = response.error {
+        if let error = response.error {
           completion(.failure(error))
+        } else if let data = response.data {
+          completion(.success(data))
         }
       }
   }
