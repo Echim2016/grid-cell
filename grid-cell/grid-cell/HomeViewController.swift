@@ -47,7 +47,12 @@ class HomeViewController: UIViewController {
   
   private func setupBindings() {
     mainButton.rx.tap
-      .bind {}
+      .bind { [weak self] in
+        self?.show(
+          GridViewController(viewModel: GridViewModel(client: AlamofireHTTPClient())),
+          sender: nil
+        )
+      }
       .disposed(by: viewModel.disposeBag)
   }
 }
