@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct GridItem {
-  let id: String
+struct GridItem: Codable {
+  let id: Int
   let title: String
-  let thumbnailUrl: String
+  let thumbnailUrl: URL
 }

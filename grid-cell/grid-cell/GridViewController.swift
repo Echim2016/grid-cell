@@ -8,13 +8,25 @@
 import RxSwift
 import UIKit
 
-class GridViewModel {
+final class GridViewModel {
+  let gridLoader: GridLoader
   let disposeBag = DisposeBag()
   let items = PublishSubject<[GridItemCellViewModel]>()
+  
+  init(client: HTTPClient) {
+    self.gridLoader = RemoteGridLoader(path: .photos, client: client)
+  }
 
   func loadItems() {
-    // TODO: load items from API
-    items.onNext([])
+    gridLoader.load { result in
+      switch result {
+      case let .success(gridItems):
+        let cellViewModels = gridItems.map(GridItemCellViewModel.init)
+        self.items.onNext(cellViewModels)
+      case let .failure(error):
+        print(error)
+      }
+    }
   }
 }
 
@@ -67,7 +79,7 @@ class GridViewController: UIViewController {
       }
       .disposed(by: viewModel.disposeBag)
   }
-  
+
   private func loadItems() {
     viewModel.loadItems()
   }

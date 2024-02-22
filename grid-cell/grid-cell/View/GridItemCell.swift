@@ -13,9 +13,9 @@ final class GridItemCellViewModel {
   let imageUrl: URL?
   
   init(item: GridItem) {
-    self.title = item.id
+    self.title = "\(item.id)"
     self.subtitle = item.title
-    self.imageUrl = URL(string: item.thumbnailUrl)
+    self.imageUrl = item.thumbnailUrl
   }
 }
 
