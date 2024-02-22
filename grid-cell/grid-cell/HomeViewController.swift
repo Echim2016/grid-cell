@@ -9,11 +9,11 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class HomeViewModel {
+final class HomeViewModel {
   let disposeBag = DisposeBag()
 }
 
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
   
   let viewModel = HomeViewModel()
   

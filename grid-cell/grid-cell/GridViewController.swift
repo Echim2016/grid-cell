@@ -30,7 +30,7 @@ final class GridViewModel {
   }
 }
 
-class GridViewController: UIViewController {
+final class GridViewController: UIViewController {
   let viewModel: GridViewModel
 
   private lazy var collectionView = {
