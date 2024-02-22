@@ -10,6 +10,8 @@ import RxSwift
 import RxCocoa
 
 final class HomeViewModel {
+  let buttonTitle = "Next Page"
+  let navigationBarTitle = "Home"
   let disposeBag = DisposeBag()
 }
 
@@ -22,18 +24,19 @@ final class HomeViewController: UIViewController {
     button.translatesAutoresizingMaskIntoConstraints = false
     button.backgroundColor = UIColor(red: 124.0/255.0, green: 76.0/255.0, blue: 36.0/255.0, alpha: 1.0)
     button.setTitleColor(.white, for: .normal)
-    button.setTitle("Next Page", for: .normal)
+    button.setTitle(viewModel.buttonTitle, for: .normal)
     return button
   }()
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    title = "Home"
     setupUI()
     setupBindings()
   }
   
   private func setupUI() {
+    title = viewModel.navigationBarTitle
+    
     view.addSubview(mainButton)
     NSLayoutConstraint.activate(
       [
