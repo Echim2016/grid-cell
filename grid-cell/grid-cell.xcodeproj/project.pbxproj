@@ -20,6 +20,7 @@
 		9CBBC4E22B872FEE0000EE94 /* RxCocoa-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 9CBBC4E12B872FEE0000EE94 /* RxCocoa-Dynamic */; };
 		9CBBC4E42B872FEE0000EE94 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9CBBC4E32B872FEE0000EE94 /* RxSwift */; };
 		9CBBC4E62B872FEE0000EE94 /* RxSwift-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 9CBBC4E52B872FEE0000EE94 /* RxSwift-Dynamic */; };
+		9CBBC4E82B8732B40000EE94 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC4E72B8732B40000EE94 /* GridViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		9CBBC4C62B8724890000EE94 /* grid_cellUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = grid_cellUITests.swift; sourceTree = "<group>"; };
 		9CBBC4C82B8724890000EE94 /* grid_cellUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = grid_cellUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9CBBC4D52B8726550000EE94 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		9CBBC4E72B8732B40000EE94 /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				9CBBC4AE2B8724890000EE94 /* Assets.xcassets */,
 				9CBBC4B02B8724890000EE94 /* LaunchScreen.storyboard */,
 				9CBBC4B32B8724890000EE94 /* Info.plist */,
+				9CBBC4E72B8732B40000EE94 /* GridViewController.swift */,
 				9CBBC4D52B8726550000EE94 /* HomeViewController.swift */,
 			);
 			path = "grid-cell";
@@ -275,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CBBC4E82B8732B40000EE94 /* GridViewController.swift in Sources */,
 				9CBBC4A62B8724870000EE94 /* AppDelegate.swift in Sources */,
 				9CBBC4A82B8724870000EE94 /* SceneDelegate.swift in Sources */,
 				9CBBC4D62B8726550000EE94 /* HomeViewController.swift in Sources */,
