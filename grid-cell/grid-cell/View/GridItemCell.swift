@@ -21,6 +21,41 @@ final class GridItemCellViewModel {
 
 final class GridItemCell: UICollectionViewCell {
   
+  private lazy var baseImageView: UIImageView = {
+    let imageView = UIImageView()
+    imageView.translatesAutoresizingMaskIntoConstraints = false
+    imageView.contentMode = .scaleAspectFill
+    return imageView
+  }()
+  
+  private lazy var baseVStackView: UIStackView = {
+    let stackView = UIStackView()
+    stackView.translatesAutoresizingMaskIntoConstraints = false
+    stackView.axis = .vertical
+    stackView.spacing = 4.0
+    stackView.addArrangedSubview(mainLabel)
+    stackView.addArrangedSubview(subtitleLabel)
+    return stackView
+  }()
+  
+  private lazy var mainLabel: UILabel = {
+    let label = UILabel()
+    label.translatesAutoresizingMaskIntoConstraints = false
+    label.font = .systemFont(ofSize: 18.0)
+    label.numberOfLines = 1
+    label.textAlignment = .center
+    return label
+  }()
+  
+  private lazy var subtitleLabel: UILabel = {
+    let label = UILabel()
+    label.translatesAutoresizingMaskIntoConstraints = false
+    label.font = .systemFont(ofSize: 14.0)
+    label.numberOfLines = 2
+    label.textAlignment = .center
+    return label
+  }()
+  
   var viewModel: GridItemCellViewModel? {
     didSet {
       updateUI()
@@ -38,10 +73,31 @@ final class GridItemCell: UICollectionViewCell {
   }
 
   private func updateUI() {
-    
+    mainLabel.text = viewModel?.title
+    subtitleLabel.text = viewModel?.subtitle
   }
 
   private func setupUI() {
+    contentView.backgroundColor = .lightGray
     
+    contentView.addSubview(baseImageView)
+    NSLayoutConstraint.activate(
+      [
+        baseImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+        baseImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+        baseImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+        baseImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+      ]
+    )
+    
+    contentView.addSubview(baseVStackView)
+    NSLayoutConstraint.activate(
+      [
+        baseVStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+        baseVStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+        baseVStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
+        baseVStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+      ]
+    )
   }
 }
