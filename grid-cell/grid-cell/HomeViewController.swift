@@ -6,8 +6,16 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+
+class HomeViewModel {
+  let disposeBag = DisposeBag()
+}
 
 class HomeViewController: UIViewController {
+  
+  let viewModel = HomeViewModel()
   
   private lazy var mainButton: UIButton = {
     let button = UIButton(type: .system)
@@ -22,6 +30,7 @@ class HomeViewController: UIViewController {
     super.viewDidLoad()
     title = "Home"
     setupUI()
+    setupBindings()
   }
   
   private func setupUI() {
@@ -34,5 +43,11 @@ class HomeViewController: UIViewController {
         mainButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16.0),
       ]
     )
+  }
+  
+  private func setupBindings() {
+    mainButton.rx.tap
+      .bind {}
+      .disposed(by: viewModel.disposeBag)
   }
 }
