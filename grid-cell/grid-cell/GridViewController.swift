@@ -37,7 +37,7 @@ final class GridViewController: UIViewController {
     let layout = UICollectionViewFlowLayout()
     let itemWidth = (view.bounds.width - 3) / 4.0
     layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
-    layout.minimumLineSpacing = 0
+    layout.minimumLineSpacing = 1
     layout.minimumInteritemSpacing = 1
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
     collectionView.register(GridItemCell.self, forCellWithReuseIdentifier: "\(GridItemCell.self)")

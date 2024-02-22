@@ -93,10 +93,10 @@ final class GridItemCell: UICollectionViewCell {
     contentView.addSubview(baseVStackView)
     NSLayoutConstraint.activate(
       [
-        baseVStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-        baseVStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-        baseVStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
-        baseVStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+        baseVStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 4.0),
+        baseVStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -4.0),
+        baseVStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4.0),
+        baseVStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -4.0),
       ]
     )
   }
