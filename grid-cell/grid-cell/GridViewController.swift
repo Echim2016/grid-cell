@@ -8,14 +8,27 @@
 import RxSwift
 import UIKit
 
-class GridViewModel {}
+class GridViewModel {
+  let disposeBag = DisposeBag()
+  let items = PublishSubject<[GridItemCellViewModel]>()
+
+  func loadItems() {
+    // TODO: load items from API
+    items.onNext([])
+  }
+}
 
 class GridViewController: UIViewController {
   let viewModel: GridViewModel
 
   private lazy var collectionView = {
     let layout = UICollectionViewFlowLayout()
+    let itemWidth = view.bounds.width / 4.0
+    layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
+    layout.minimumLineSpacing = 0
+    layout.minimumInteritemSpacing = 0
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+    collectionView.register(GridItemCell.self, forCellWithReuseIdentifier: "\(GridItemCell.self)")
     return collectionView
   }()
 
@@ -27,6 +40,8 @@ class GridViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setupUI()
+    setupBindings()
+    loadItems()
   }
 
   @available(*, unavailable)
@@ -37,5 +52,23 @@ class GridViewController: UIViewController {
   private func setupUI() {
     view.addSubview(collectionView)
     collectionView.frame = view.bounds
+  }
+
+  private func setupBindings() {
+    viewModel
+      .items
+      .bind(
+        to: collectionView.rx.items(
+          cellIdentifier: "\(GridItemCell.self)",
+          cellType: GridItemCell.self
+        )
+      ) { _, cellViewModel, cell in
+        cell.viewModel = cellViewModel
+      }
+      .disposed(by: viewModel.disposeBag)
+  }
+  
+  private func loadItems() {
+    viewModel.loadItems()
   }
 }
