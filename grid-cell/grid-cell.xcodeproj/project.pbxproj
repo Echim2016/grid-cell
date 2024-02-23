@@ -36,6 +36,7 @@
 		9CBBC50A2B8876EB0000EE94 /* GridImageLoaderWithFallbackComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC5092B8876EB0000EE94 /* GridImageLoaderWithFallbackComposite.swift */; };
 		9CBBC50F2B88796F0000EE94 /* RemoteGridImageDataLoaderWithCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC50E2B88796F0000EE94 /* RemoteGridImageDataLoaderWithCache.swift */; };
 		9CBBC5112B887A0F0000EE94 /* GridImageFileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC5102B887A0F0000EE94 /* GridImageFileStore.swift */; };
+		9CBBC5132B887A8F0000EE94 /* GridItemCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC5122B887A8F0000EE94 /* GridItemCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		9CBBC5092B8876EB0000EE94 /* GridImageLoaderWithFallbackComposite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridImageLoaderWithFallbackComposite.swift; sourceTree = "<group>"; };
 		9CBBC50E2B88796F0000EE94 /* RemoteGridImageDataLoaderWithCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteGridImageDataLoaderWithCache.swift; sourceTree = "<group>"; };
 		9CBBC5102B887A0F0000EE94 /* GridImageFileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridImageFileStore.swift; sourceTree = "<group>"; };
+		9CBBC5122B887A8F0000EE94 /* GridItemCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridItemCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				9CBBC4ED2B873F410000EE94 /* GridItemCell.swift */,
+				9CBBC5122B887A8F0000EE94 /* GridItemCellViewModel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				9CBBC4FB2B875F8B0000EE94 /* GridLoader.swift in Sources */,
 				9CBBC5022B8870460000EE94 /* GridImageDataStore.swift in Sources */,
 				9CBBC5112B887A0F0000EE94 /* GridImageFileStore.swift in Sources */,
+				9CBBC5132B887A8F0000EE94 /* GridItemCellViewModel.swift in Sources */,
 				9CBBC50F2B88796F0000EE94 /* RemoteGridImageDataLoaderWithCache.swift in Sources */,
 				9CBBC5042B8870FC0000EE94 /* GridImageDataCache.swift in Sources */,
 			);
