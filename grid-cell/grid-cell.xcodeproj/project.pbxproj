@@ -28,6 +28,7 @@
 		9CBBC4F92B875EFD0000EE94 /* AlamofireHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC4F82B875EFD0000EE94 /* AlamofireHTTPClient.swift */; };
 		9CBBC4FB2B875F8B0000EE94 /* GridLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC4FA2B875F8B0000EE94 /* GridLoader.swift */; };
 		9CBBC4FD2B87601F0000EE94 /* RemoteGridLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC4FC2B87601F0000EE94 /* RemoteGridLoader.swift */; };
+		9CBBC4FF2B886FBF0000EE94 /* GridImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC4FE2B886FBF0000EE94 /* GridImageDataLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		9CBBC4F82B875EFD0000EE94 /* AlamofireHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireHTTPClient.swift; sourceTree = "<group>"; };
 		9CBBC4FA2B875F8B0000EE94 /* GridLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLoader.swift; sourceTree = "<group>"; };
 		9CBBC4FC2B87601F0000EE94 /* RemoteGridLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteGridLoader.swift; sourceTree = "<group>"; };
+		9CBBC4FE2B886FBF0000EE94 /* GridImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridImageDataLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 				9CBBC4F82B875EFD0000EE94 /* AlamofireHTTPClient.swift */,
 				9CBBC4F62B875EC80000EE94 /* HTTPClient.swift */,
 				9CBBC4FA2B875F8B0000EE94 /* GridLoader.swift */,
+				9CBBC4FE2B886FBF0000EE94 /* GridImageDataLoader.swift */,
 				9CBBC4FC2B87601F0000EE94 /* RemoteGridLoader.swift */,
 			);
 			path = Networking;
@@ -333,6 +336,7 @@
 				9CBBC4EB2B873DE50000EE94 /* GridItem.swift in Sources */,
 				9CBBC4A82B8724870000EE94 /* SceneDelegate.swift in Sources */,
 				9CBBC4D62B8726550000EE94 /* HomeViewController.swift in Sources */,
+				9CBBC4FF2B886FBF0000EE94 /* GridImageDataLoader.swift in Sources */,
 				9CBBC4FB2B875F8B0000EE94 /* GridLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
