@@ -36,6 +36,7 @@ final class HomeViewController: UIViewController {
   
   private func setupUI() {
     title = viewModel.navigationBarTitle
+    view.backgroundColor = .white
     
     view.addSubview(mainButton)
     NSLayoutConstraint.activate(
