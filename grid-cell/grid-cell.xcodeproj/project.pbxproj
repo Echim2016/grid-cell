@@ -30,6 +30,7 @@
 		9CBBC4FD2B87601F0000EE94 /* RemoteGridLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC4FC2B87601F0000EE94 /* RemoteGridLoader.swift */; };
 		9CBBC4FF2B886FBF0000EE94 /* GridImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC4FE2B886FBF0000EE94 /* GridImageDataLoader.swift */; };
 		9CBBC5022B8870460000EE94 /* GridImageDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC5012B8870460000EE94 /* GridImageDataStore.swift */; };
+		9CBBC5042B8870FC0000EE94 /* GridImageDataCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC5032B8870FC0000EE94 /* GridImageDataCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		9CBBC4FC2B87601F0000EE94 /* RemoteGridLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteGridLoader.swift; sourceTree = "<group>"; };
 		9CBBC4FE2B886FBF0000EE94 /* GridImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridImageDataLoader.swift; sourceTree = "<group>"; };
 		9CBBC5012B8870460000EE94 /* GridImageDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridImageDataStore.swift; sourceTree = "<group>"; };
+		9CBBC5032B8870FC0000EE94 /* GridImageDataCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridImageDataCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 		9CBBC5002B88703F0000EE94 /* Cache */ = {
 			isa = PBXGroup;
 			children = (
+				9CBBC5032B8870FC0000EE94 /* GridImageDataCache.swift */,
 				9CBBC5012B8870460000EE94 /* GridImageDataStore.swift */,
 			);
 			path = Cache;
@@ -350,6 +353,7 @@
 				9CBBC4FF2B886FBF0000EE94 /* GridImageDataLoader.swift in Sources */,
 				9CBBC4FB2B875F8B0000EE94 /* GridLoader.swift in Sources */,
 				9CBBC5022B8870460000EE94 /* GridImageDataStore.swift in Sources */,
+				9CBBC5042B8870FC0000EE94 /* GridImageDataCache.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
