@@ -7,6 +7,10 @@
 
 import Foundation
 
+enum FileStore {
+  static let storeURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+}
+
 final class GridImageFileStore: GridImageDataStore {
   let storeURL: URL
   
