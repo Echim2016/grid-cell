@@ -29,6 +29,7 @@
 		9CBBC4FB2B875F8B0000EE94 /* GridLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC4FA2B875F8B0000EE94 /* GridLoader.swift */; };
 		9CBBC4FD2B87601F0000EE94 /* RemoteGridLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC4FC2B87601F0000EE94 /* RemoteGridLoader.swift */; };
 		9CBBC4FF2B886FBF0000EE94 /* GridImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC4FE2B886FBF0000EE94 /* GridImageDataLoader.swift */; };
+		9CBBC5022B8870460000EE94 /* GridImageDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC5012B8870460000EE94 /* GridImageDataStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		9CBBC4FA2B875F8B0000EE94 /* GridLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLoader.swift; sourceTree = "<group>"; };
 		9CBBC4FC2B87601F0000EE94 /* RemoteGridLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteGridLoader.swift; sourceTree = "<group>"; };
 		9CBBC4FE2B886FBF0000EE94 /* GridImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridImageDataLoader.swift; sourceTree = "<group>"; };
+		9CBBC5012B8870460000EE94 /* GridImageDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridImageDataStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 		9CBBC4A42B8724870000EE94 /* grid-cell */ = {
 			isa = PBXGroup;
 			children = (
+				9CBBC5002B88703F0000EE94 /* Cache */,
 				9CBBC4F52B875EBE0000EE94 /* Networking */,
 				9CBBC4EC2B873F2E0000EE94 /* View */,
 				9CBBC4E92B873DDC0000EE94 /* Model */,
@@ -183,6 +186,14 @@
 				9CBBC4FC2B87601F0000EE94 /* RemoteGridLoader.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		9CBBC5002B88703F0000EE94 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				9CBBC5012B8870460000EE94 /* GridImageDataStore.swift */,
+			);
+			path = Cache;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -338,6 +349,7 @@
 				9CBBC4D62B8726550000EE94 /* HomeViewController.swift in Sources */,
 				9CBBC4FF2B886FBF0000EE94 /* GridImageDataLoader.swift in Sources */,
 				9CBBC4FB2B875F8B0000EE94 /* GridLoader.swift in Sources */,
+				9CBBC5022B8870460000EE94 /* GridImageDataStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
