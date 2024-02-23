@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C0F740D2B88A80A00CFFEC2 /* GridItemCellRenderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0F740C2B88A80A00CFFEC2 /* GridItemCellRenderController.swift */; };
 		9CBBC4A62B8724870000EE94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC4A52B8724870000EE94 /* AppDelegate.swift */; };
 		9CBBC4AF2B8724890000EE94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CBBC4AE2B8724890000EE94 /* Assets.xcassets */; };
 		9CBBC4B22B8724890000EE94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CBBC4B02B8724890000EE94 /* LaunchScreen.storyboard */; };
@@ -55,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9C0F740C2B88A80A00CFFEC2 /* GridItemCellRenderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridItemCellRenderController.swift; sourceTree = "<group>"; };
 		9CBBC4A22B8724870000EE94 /* grid-cell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "grid-cell.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CBBC4A52B8724870000EE94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CBBC4AE2B8724890000EE94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			children = (
 				9CBBC4ED2B873F410000EE94 /* GridItemCell.swift */,
 				9CBBC5122B887A8F0000EE94 /* GridItemCellViewModel.swift */,
+				9C0F740C2B88A80A00CFFEC2 /* GridItemCellRenderController.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				9CBBC4A62B8724870000EE94 /* AppDelegate.swift in Sources */,
 				9CBBC50A2B8876EB0000EE94 /* GridImageLoaderWithFallbackComposite.swift in Sources */,
 				9CBBC5062B8871640000EE94 /* LocalGridImageDataLoader.swift in Sources */,
+				9C0F740D2B88A80A00CFFEC2 /* GridItemCellRenderController.swift in Sources */,
 				9CBBC5082B8872DB0000EE94 /* RemoteGridImageDataLoader.swift in Sources */,
 				9CBBC4F92B875EFD0000EE94 /* AlamofireHTTPClient.swift in Sources */,
 				9CBBC4F72B875EC80000EE94 /* HTTPClient.swift in Sources */,
