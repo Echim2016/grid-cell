@@ -16,7 +16,7 @@ final class RemoteGridImageDataLoaderWithCache: GridImageDataLoader {
     self.cache = cache
   }
   
-  func loadImageData(from url: URL, completion: @escaping (GridImageDataLoader.Result) -> Void) {
+  func loadImageData(from url: URL, completion: @escaping (GridImageDataLoader.Result) -> Void) -> CancellableTask? {
     remoteLoader.loadImageData(from: url) { [weak self] result in
       switch result {
       case let .success(data):

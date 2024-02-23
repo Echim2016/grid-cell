@@ -14,7 +14,7 @@ final class RemoteGridImageDataLoader: GridImageDataLoader {
     self.client = client
   }
   
-  func loadImageData(from url: URL, completion: @escaping (GridImageDataLoader.Result) -> Void) {
+  func loadImageData(from url: URL, completion: @escaping (GridImageDataLoader.Result) -> Void) -> CancellableTask? {
     client.get(from: url, completion: completion)
   }
 }

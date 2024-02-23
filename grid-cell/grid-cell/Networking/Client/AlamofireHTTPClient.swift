@@ -9,8 +9,8 @@ import Alamofire
 import Foundation
 
 final class AlamofireHTTPClient: HTTPClient {
-  func get(from url: URL, completion: @escaping (HTTPClient.Result) -> Void) {
-    AF.request(url)
+  func get(from url: URL, completion: @escaping (HTTPClient.Result) -> Void) -> CancellableTask? {
+    let task = AF.request(url)
       .response { response in
         if let error = response.error {
           completion(.failure(error))
@@ -18,5 +18,13 @@ final class AlamofireHTTPClient: HTTPClient {
           completion(.success(data))
         }
       }
+    task.resume()
+    return task
+  }
+}
+
+extension DataRequest: CancellableTask {
+  public func cancel() {
+    self.task?.cancel()
   }
 }

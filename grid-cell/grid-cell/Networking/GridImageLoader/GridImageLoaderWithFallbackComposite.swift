@@ -16,7 +16,7 @@ final class GridImageLoaderWithFallbackComposite: GridImageDataLoader {
     self.fallbackLoader = fallbackLoader
   }
   
-  func loadImageData(from url: URL, completion: @escaping (GridImageDataLoader.Result) -> Void) {
+  func loadImageData(from url: URL, completion: @escaping (GridImageDataLoader.Result) -> Void) -> CancellableTask? {
     primaryLoader.loadImageData(from: url) { [weak self] result in
       switch result {
       case let .success(data):

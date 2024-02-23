@@ -12,15 +12,21 @@ final class GridItemCellViewModel {
   let subtitle: String
   let imageUrl: URL
   let imageLoader: GridImageDataLoader
+  var task: CancellableTask?
   
   init(item: GridItem, imageLoader: GridImageDataLoader) {
     self.title = "\(item.id)"
     self.subtitle = item.title
     self.imageUrl = item.thumbnailUrl
     self.imageLoader = imageLoader
+    self.task = nil
   }
   
-  func loadImage(completion: @escaping (GridImageDataLoader.Result) -> Void) {
-    imageLoader.loadImageData(from: imageUrl, completion: completion)
+  @discardableResult
+  func loadImage(completion: @escaping (GridImageDataLoader.Result) -> Void) -> CancellableTask? {
+    task = imageLoader.loadImageData(from: imageUrl, completion: completion)
+    return task
+  }
+  
   }
 }

@@ -22,7 +22,7 @@ extension LocalGridImageDataLoader: GridImageDataLoader {
     case notFound
   }
 
-  func loadImageData(from url: URL, completion: @escaping (GridImageDataLoader.Result) -> Void) {
+  func loadImageData(from url: URL, completion: @escaping (GridImageDataLoader.Result) -> Void) -> CancellableTask? {
     do {
       if let imageData = try store.retrieve(from: url) {
         completion(.success(imageData))
@@ -32,6 +32,7 @@ extension LocalGridImageDataLoader: GridImageDataLoader {
     } catch {
       completion(.failure(LocalLoadError.failed))
     }
+    return nil
   }
 }
 
