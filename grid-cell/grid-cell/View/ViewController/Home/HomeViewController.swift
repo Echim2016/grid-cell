@@ -9,12 +9,6 @@ import RxCocoa
 import RxSwift
 import UIKit
 
-final class HomeViewModel {
-  let buttonTitle = "Next Page"
-  let navigationBarTitle = "Home"
-  let disposeBag = DisposeBag()
-}
-
 final class HomeViewController: UIViewController {
   let viewModel: HomeViewModel
   let coordinator: MainCoordinator?
