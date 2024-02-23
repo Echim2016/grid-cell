@@ -22,10 +22,8 @@ final class GridItemCellViewModel {
     self.task = nil
   }
   
-  @discardableResult
-  func loadImage(completion: @escaping (GridImageDataLoader.Result) -> Void) -> CancellableTask? {
+  func loadImage(completion: @escaping (GridImageDataLoader.Result) -> Void) {
     task = imageLoader.loadImageData(from: imageUrl, completion: completion)
-    return task
   }
   
   func cancelLoadImageTask() {
