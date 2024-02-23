@@ -28,5 +28,8 @@ final class GridItemCellViewModel {
     return task
   }
   
+  func cancelLoadImageTask() {
+    task?.cancel()
+    task = nil
   }
 }

@@ -8,11 +8,41 @@
 import RxSwift
 import UIKit
 
+final class GridItemCellRenderController {
+  private var cell: GridItemCell? = nil
+  private let viewModel: GridItemCellViewModel
+  
+  init(viewModel: GridItemCellViewModel) {
+    self.viewModel = viewModel
+  }
+  
+  func setupCell(with cell: GridItemCell) {
+    self.cell = cell
+  }
+  
+  func preload() {
+    viewModel.loadImage { [weak self] result in
+      switch result {
+      case let .success(data):
+        self?.cell?.updateImage(with: data)
+      case .failure:
+        break
+      }
+    }
+    cell?.updateUI(with: viewModel)
+  }
+  
+  func cancelLoad() {
+    viewModel.cancelLoadImageTask()
+    cell = nil
+  }
+}
+
 final class GridViewModel {
   let gridLoader: GridLoader
   let imageLoader: GridImageDataLoader
   let disposeBag = DisposeBag()
-  let items = PublishSubject<[GridItemCellViewModel]>()
+  let items = BehaviorSubject<[GridItemCellRenderController]>(value: [])
   
   init(gridLoader: GridLoader, imageLoader: GridImageDataLoader) {
     self.gridLoader = gridLoader
@@ -24,13 +54,33 @@ final class GridViewModel {
       guard let self else { return }
       switch result {
       case let .success(gridItems):
-        let cellViewModels = gridItems.map {
-          GridItemCellViewModel(item: $0, imageLoader: self.imageLoader)
+        let controllers = gridItems.map {
+          GridItemCellRenderController(viewModel: GridItemCellViewModel(item: $0, imageLoader: self.imageLoader))
         }
-        self.items.onNext(cellViewModels)
+        self.items.onNext(controllers)
       case let .failure(error):
         print(error)
       }
+    }
+  }
+  
+  func preloadItem(at index: Int, cell: GridItemCell) {
+    guard let controller = getController(index: index) else { return }
+    controller.setupCell(with: cell)
+    controller.preload()
+  }
+  
+  func cancelItemTask(at index: Int) {
+    guard let controller = getController(index: index) else { return }
+    controller.cancelLoad()
+  }
+  
+  private func getController(index: Int) -> GridItemCellRenderController? {
+    do {
+      let controller = try items.value()[index]
+      return controller
+    } catch {
+      return nil
     }
   }
 }
@@ -79,8 +129,17 @@ final class GridViewController: UIViewController {
           cellIdentifier: "\(GridItemCell.self)",
           cellType: GridItemCell.self
         )
-      ) { _, cellViewModel, cell in
-        cell.viewModel = cellViewModel
+      ) { index, controller, cell in
+        controller.setupCell(with: cell)
+        controller.preload()
+      }
+      .disposed(by: viewModel.disposeBag)
+    
+    collectionView.rx
+      .didEndDisplayingCell
+      .bind { [weak self] _, indexPath in
+        guard let self else { return }
+        self.viewModel.cancelItemTask(at: indexPath.row)
       }
       .disposed(by: viewModel.disposeBag)
   }

@@ -44,11 +44,9 @@ final class GridItemCell: UICollectionViewCell {
     return label
   }()
   
-  var viewModel: GridItemCellViewModel? {
-    didSet {
-      updateImage()
-      updateUI()
-    }
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    baseImageView.image = nil
   }
   
   override init(frame _: CGRect) {
@@ -61,20 +59,13 @@ final class GridItemCell: UICollectionViewCell {
     fatalError("init(coder:) has not been implemented")
   }
 
-  private func updateUI() {
-    mainLabel.text = viewModel?.title
-    subtitleLabel.text = viewModel?.subtitle
+  func updateUI(with viewModel: GridItemCellViewModel) {
+    mainLabel.text = viewModel.title
+    subtitleLabel.text = viewModel.subtitle
   }
   
-  private func updateImage() {
-    viewModel?.loadImage { [weak baseImageView] result in
-      switch result {
-      case let .success(data):
-        baseImageView?.image = UIImage(data: data)
-      case let .failure(error):
-        print(error)
-      }
-    }
+  func updateImage(with data: Data) {
+    baseImageView.image = UIImage(data: data)
   }
 
   private func setupUI() {
