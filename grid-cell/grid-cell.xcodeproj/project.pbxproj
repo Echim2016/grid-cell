@@ -35,6 +35,7 @@
 		9CBBC5082B8872DB0000EE94 /* RemoteGridImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC5072B8872DB0000EE94 /* RemoteGridImageDataLoader.swift */; };
 		9CBBC50A2B8876EB0000EE94 /* GridImageLoaderWithFallbackComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC5092B8876EB0000EE94 /* GridImageLoaderWithFallbackComposite.swift */; };
 		9CBBC50F2B88796F0000EE94 /* RemoteGridImageDataLoaderWithCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC50E2B88796F0000EE94 /* RemoteGridImageDataLoaderWithCache.swift */; };
+		9CBBC5112B887A0F0000EE94 /* GridImageFileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC5102B887A0F0000EE94 /* GridImageFileStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		9CBBC5072B8872DB0000EE94 /* RemoteGridImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteGridImageDataLoader.swift; sourceTree = "<group>"; };
 		9CBBC5092B8876EB0000EE94 /* GridImageLoaderWithFallbackComposite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridImageLoaderWithFallbackComposite.swift; sourceTree = "<group>"; };
 		9CBBC50E2B88796F0000EE94 /* RemoteGridImageDataLoaderWithCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteGridImageDataLoaderWithCache.swift; sourceTree = "<group>"; };
+		9CBBC5102B887A0F0000EE94 /* GridImageFileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridImageFileStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,9 +191,9 @@
 		9CBBC4F52B875EBE0000EE94 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				9CBBC50B2B8878EF0000EE94 /* Client */,
 				9CBBC50D2B8879320000EE94 /* GridImageLoader */,
 				9CBBC50C2B8879170000EE94 /* GridLoader */,
-				9CBBC50B2B8878EF0000EE94 /* Client */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -201,6 +203,7 @@
 			children = (
 				9CBBC5032B8870FC0000EE94 /* GridImageDataCache.swift */,
 				9CBBC5012B8870460000EE94 /* GridImageDataStore.swift */,
+				9CBBC5102B887A0F0000EE94 /* GridImageFileStore.swift */,
 				9CBBC5052B8871640000EE94 /* LocalGridImageDataLoader.swift */,
 			);
 			path = Cache;
@@ -392,6 +395,7 @@
 				9CBBC4FF2B886FBF0000EE94 /* GridImageDataLoader.swift in Sources */,
 				9CBBC4FB2B875F8B0000EE94 /* GridLoader.swift in Sources */,
 				9CBBC5022B8870460000EE94 /* GridImageDataStore.swift in Sources */,
+				9CBBC5112B887A0F0000EE94 /* GridImageFileStore.swift in Sources */,
 				9CBBC50F2B88796F0000EE94 /* RemoteGridImageDataLoaderWithCache.swift in Sources */,
 				9CBBC5042B8870FC0000EE94 /* GridImageDataCache.swift in Sources */,
 			);
