@@ -114,6 +114,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C0F740A2B888C2D00CFFEC2 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9CBBC4ED2B873F410000EE94 /* GridItemCell.swift */,
+				9CBBC5122B887A8F0000EE94 /* GridItemCellViewModel.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		9C0F740B2B888C3500CFFEC2 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9CBBC4E72B8732B40000EE94 /* GridViewController.swift */,
+				9CBBC4D52B8726550000EE94 /* HomeViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		9CBBC4992B8724870000EE94 = {
 			isa = PBXGroup;
 			children = (
@@ -145,8 +163,6 @@
 				9CBBC4AE2B8724890000EE94 /* Assets.xcassets */,
 				9CBBC4B02B8724890000EE94 /* LaunchScreen.storyboard */,
 				9CBBC4B32B8724890000EE94 /* Info.plist */,
-				9CBBC4E72B8732B40000EE94 /* GridViewController.swift */,
-				9CBBC4D52B8726550000EE94 /* HomeViewController.swift */,
 			);
 			path = "grid-cell";
 			sourceTree = "<group>";
@@ -179,8 +195,8 @@
 		9CBBC4EC2B873F2E0000EE94 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9CBBC4ED2B873F410000EE94 /* GridItemCell.swift */,
-				9CBBC5122B887A8F0000EE94 /* GridItemCellViewModel.swift */,
+				9C0F740B2B888C3500CFFEC2 /* ViewController */,
+				9C0F740A2B888C2D00CFFEC2 /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
