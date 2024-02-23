@@ -26,11 +26,12 @@ extension LocalGridImageDataLoader: GridImageDataLoader {
     do {
       if let imageData = try store.retrieve(from: url) {
         completion(.success(imageData))
+      } else {
+        completion(.failure(LocalLoadError.notFound))
       }
     } catch {
       completion(.failure(LocalLoadError.failed))
     }
-    completion(.failure(LocalLoadError.notFound))
   }
 }
 
