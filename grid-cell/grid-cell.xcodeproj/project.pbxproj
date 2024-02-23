@@ -33,6 +33,7 @@
 		9CBBC5042B8870FC0000EE94 /* GridImageDataCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC5032B8870FC0000EE94 /* GridImageDataCache.swift */; };
 		9CBBC5062B8871640000EE94 /* LocalGridImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC5052B8871640000EE94 /* LocalGridImageDataLoader.swift */; };
 		9CBBC5082B8872DB0000EE94 /* RemoteGridImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC5072B8872DB0000EE94 /* RemoteGridImageDataLoader.swift */; };
+		9CBBC50A2B8876EB0000EE94 /* GridImageLoaderWithFallbackComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC5092B8876EB0000EE94 /* GridImageLoaderWithFallbackComposite.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		9CBBC5032B8870FC0000EE94 /* GridImageDataCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridImageDataCache.swift; sourceTree = "<group>"; };
 		9CBBC5052B8871640000EE94 /* LocalGridImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalGridImageDataLoader.swift; sourceTree = "<group>"; };
 		9CBBC5072B8872DB0000EE94 /* RemoteGridImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteGridImageDataLoader.swift; sourceTree = "<group>"; };
+		9CBBC5092B8876EB0000EE94 /* GridImageLoaderWithFallbackComposite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridImageLoaderWithFallbackComposite.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 				9CBBC4F62B875EC80000EE94 /* HTTPClient.swift */,
 				9CBBC4FA2B875F8B0000EE94 /* GridLoader.swift */,
 				9CBBC4FE2B886FBF0000EE94 /* GridImageDataLoader.swift */,
+				9CBBC5092B8876EB0000EE94 /* GridImageLoaderWithFallbackComposite.swift */,
 				9CBBC4FC2B87601F0000EE94 /* RemoteGridLoader.swift */,
 				9CBBC5072B8872DB0000EE94 /* RemoteGridImageDataLoader.swift */,
 			);
@@ -351,6 +354,7 @@
 				9CBBC4EE2B873F410000EE94 /* GridItemCell.swift in Sources */,
 				9CBBC4E82B8732B40000EE94 /* GridViewController.swift in Sources */,
 				9CBBC4A62B8724870000EE94 /* AppDelegate.swift in Sources */,
+				9CBBC50A2B8876EB0000EE94 /* GridImageLoaderWithFallbackComposite.swift in Sources */,
 				9CBBC5062B8871640000EE94 /* LocalGridImageDataLoader.swift in Sources */,
 				9CBBC5082B8872DB0000EE94 /* RemoteGridImageDataLoader.swift in Sources */,
 				9CBBC4F92B875EFD0000EE94 /* AlamofireHTTPClient.swift in Sources */,
