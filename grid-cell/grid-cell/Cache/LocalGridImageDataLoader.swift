@@ -15,6 +15,7 @@ final class LocalGridImageDataLoader {
   }
 }
 
+// MARK: - Load/Retrieve image data from local store
 extension LocalGridImageDataLoader: GridImageDataLoader {
   enum LocalLoadError: Error {
     case failed
@@ -30,5 +31,20 @@ extension LocalGridImageDataLoader: GridImageDataLoader {
       completion(.failure(LocalLoadError.failed))
     }
     completion(.failure(LocalLoadError.notFound))
+  }
+}
+
+// MARK: - Cache/Save image data from local store
+extension LocalGridImageDataLoader: GridImageDataCache {
+  enum LocalSaveError: Error {
+    case failed
+  }
+  
+  func save(_ data: Data, for url: URL) throws {
+    do {
+      try store.insert(data, for: url)
+    } catch {
+      throw LocalSaveError.failed
+    }
   }
 }
