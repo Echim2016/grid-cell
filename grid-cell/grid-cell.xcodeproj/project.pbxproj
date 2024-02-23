@@ -187,13 +187,9 @@
 		9CBBC4F52B875EBE0000EE94 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				9CBBC4F82B875EFD0000EE94 /* AlamofireHTTPClient.swift */,
-				9CBBC4F62B875EC80000EE94 /* HTTPClient.swift */,
-				9CBBC4FA2B875F8B0000EE94 /* GridLoader.swift */,
-				9CBBC4FE2B886FBF0000EE94 /* GridImageDataLoader.swift */,
-				9CBBC5092B8876EB0000EE94 /* GridImageLoaderWithFallbackComposite.swift */,
-				9CBBC4FC2B87601F0000EE94 /* RemoteGridLoader.swift */,
-				9CBBC5072B8872DB0000EE94 /* RemoteGridImageDataLoader.swift */,
+				9CBBC50D2B8879320000EE94 /* GridImageLoader */,
+				9CBBC50C2B8879170000EE94 /* GridLoader */,
+				9CBBC50B2B8878EF0000EE94 /* Client */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -206,6 +202,34 @@
 				9CBBC5052B8871640000EE94 /* LocalGridImageDataLoader.swift */,
 			);
 			path = Cache;
+			sourceTree = "<group>";
+		};
+		9CBBC50B2B8878EF0000EE94 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				9CBBC4F82B875EFD0000EE94 /* AlamofireHTTPClient.swift */,
+				9CBBC4F62B875EC80000EE94 /* HTTPClient.swift */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		9CBBC50C2B8879170000EE94 /* GridLoader */ = {
+			isa = PBXGroup;
+			children = (
+				9CBBC4FA2B875F8B0000EE94 /* GridLoader.swift */,
+				9CBBC4FC2B87601F0000EE94 /* RemoteGridLoader.swift */,
+			);
+			path = GridLoader;
+			sourceTree = "<group>";
+		};
+		9CBBC50D2B8879320000EE94 /* GridImageLoader */ = {
+			isa = PBXGroup;
+			children = (
+				9CBBC4FE2B886FBF0000EE94 /* GridImageDataLoader.swift */,
+				9CBBC5092B8876EB0000EE94 /* GridImageLoaderWithFallbackComposite.swift */,
+				9CBBC5072B8872DB0000EE94 /* RemoteGridImageDataLoader.swift */,
+			);
+			path = GridImageLoader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
