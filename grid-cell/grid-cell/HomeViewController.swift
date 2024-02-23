@@ -5,9 +5,9 @@
 //  Created by Yi-Chin Hsu on 2024/2/22.
 //
 
-import UIKit
-import RxSwift
 import RxCocoa
+import RxSwift
+import UIKit
 
 final class HomeViewModel {
   let buttonTitle = "Next Page"
@@ -16,28 +16,39 @@ final class HomeViewModel {
 }
 
 final class HomeViewController: UIViewController {
-  
-  let viewModel = HomeViewModel()
-  
+  let viewModel: HomeViewModel
+  let coordinator: MainCoordinator?
+
   private lazy var mainButton: UIButton = {
     let button = UIButton(type: .system)
     button.translatesAutoresizingMaskIntoConstraints = false
-    button.backgroundColor = UIColor(red: 124.0/255.0, green: 76.0/255.0, blue: 36.0/255.0, alpha: 1.0)
+    button.backgroundColor = UIColor(red: 124.0 / 255.0, green: 76.0 / 255.0, blue: 36.0 / 255.0, alpha: 1.0)
     button.setTitleColor(.white, for: .normal)
     button.setTitle(viewModel.buttonTitle, for: .normal)
     return button
   }()
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
     setupUI()
     setupBindings()
   }
-  
+
+  init(viewModel: HomeViewModel, coordinator: MainCoordinator?) {
+    self.viewModel = viewModel
+    self.coordinator = coordinator
+    super.init(nibName: nil, bundle: nil)
+  }
+
+  @available(*, unavailable)
+  required init?(coder _: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+
   private func setupUI() {
     title = viewModel.navigationBarTitle
     view.backgroundColor = .white
-    
+
     view.addSubview(mainButton)
     NSLayoutConstraint.activate(
       [
@@ -48,14 +59,11 @@ final class HomeViewController: UIViewController {
       ]
     )
   }
-  
+
   private func setupBindings() {
     mainButton.rx.tap
       .bind { [weak self] in
-        self?.show(
-          GridViewController(viewModel: GridViewModel(client: AlamofireHTTPClient())),
-          sender: nil
-        )
+        self?.coordinator?.navigateToGridPage()
       }
       .disposed(by: viewModel.disposeBag)
   }
