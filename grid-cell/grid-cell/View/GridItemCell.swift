@@ -10,12 +10,18 @@ import UIKit
 final class GridItemCellViewModel {
   let title: String
   let subtitle: String
-  let imageUrl: URL?
+  let imageUrl: URL
+  let imageLoader: GridImageDataLoader
   
-  init(item: GridItem) {
+  init(item: GridItem, imageLoader: GridImageDataLoader) {
     self.title = "\(item.id)"
     self.subtitle = item.title
     self.imageUrl = item.thumbnailUrl
+    self.imageLoader = imageLoader
+  }
+  
+  func loadImage(completion: @escaping (GridImageDataLoader.Result) -> Void) {
+    imageLoader.loadImageData(from: imageUrl, completion: completion)
   }
 }
 
@@ -58,6 +64,7 @@ final class GridItemCell: UICollectionViewCell {
   
   var viewModel: GridItemCellViewModel? {
     didSet {
+      updateImage()
       updateUI()
     }
   }
@@ -75,6 +82,17 @@ final class GridItemCell: UICollectionViewCell {
   private func updateUI() {
     mainLabel.text = viewModel?.title
     subtitleLabel.text = viewModel?.subtitle
+  }
+  
+  private func updateImage() {
+    viewModel?.loadImage { [weak baseImageView] result in
+      switch result {
+      case let .success(data):
+        baseImageView?.image = UIImage(data: data)
+      case let .failure(error):
+        print(error)
+      }
+    }
   }
 
   private func setupUI() {

@@ -10,18 +10,34 @@ import UIKit
 
 final class GridViewModel {
   let gridLoader: GridLoader
+  let imageLoader: GridImageDataLoader
   let disposeBag = DisposeBag()
   let items = PublishSubject<[GridItemCellViewModel]>()
   
   init(client: HTTPClient) {
     self.gridLoader = RemoteGridLoader(path: .photos, client: client)
+    
+    let remoteImageLoader = RemoteGridImageDataLoader(client: client)
+    let localFileStore = GridImageFileStore()
+    let localImageLoader = LocalGridImageDataLoader(store: localFileStore)
+    
+    self.imageLoader = GridImageLoaderWithFallbackComposite(
+      primaryLoader: localImageLoader,
+      fallbackLoader: RemoteGridImageDataLoaderWithCache(
+        remoteLoader: remoteImageLoader,
+        cache: localImageLoader
+      )
+    )
   }
 
   func loadItems() {
-    gridLoader.load { result in
+    gridLoader.load { [weak self] result in
+      guard let self else { return }
       switch result {
       case let .success(gridItems):
-        let cellViewModels = gridItems.map(GridItemCellViewModel.init)
+        let cellViewModels = gridItems.map {
+          GridItemCellViewModel(item: $0, imageLoader: self.imageLoader)
+        }
         self.items.onNext(cellViewModels)
       case let .failure(error):
         print(error)
