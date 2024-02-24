@@ -20,4 +20,15 @@ final class GridCellHomePageTests: XCTestCase {
     
     XCTAssertEqual(homeViewController.title, viewModel.navigationBarTitle)
   }
+  
+  func test_homePage_mainButtonTitle() {
+    let viewModel = HomeViewModel()
+    let homeViewController = HomeViewController(
+      viewModel: viewModel,
+      coordinator: nil
+    )
+    homeViewController.viewDidLoad()
+    
+    XCTAssertEqual(homeViewController.mainButton.title(for: .normal), viewModel.buttonTitle)
+  }
 }
