@@ -31,7 +31,7 @@ protocol Coordinator {
   func start()
 }
 
-final class MainCoordinator: Coordinator {
+class MainCoordinator: Coordinator {
   var navigationController: UINavigationController
 
   init(navigationController: UINavigationController) {

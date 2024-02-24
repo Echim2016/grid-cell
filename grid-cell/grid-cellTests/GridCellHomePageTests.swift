@@ -31,4 +31,40 @@ final class GridCellHomePageTests: XCTestCase {
     
     XCTAssertEqual(homeViewController.mainButton.title(for: .normal), viewModel.buttonTitle)
   }
+  
+  func test_coordinator_navigateToGridPageCalledWhenMainButtonTapped() {
+    let viewModel = HomeViewModel()
+    let rootNavigationController = UINavigationController()
+    let coordinator = MainCoordinatorSpy(navigationController: rootNavigationController)
+    coordinator.start()
+    
+    guard let homeViewController = rootNavigationController.topViewController as? HomeViewController else {
+      XCTFail("HomeViewController not found")
+      return
+    }
+    
+    homeViewController.loadViewIfNeeded()
+    homeViewController.mainButton.sendActions(for: .touchUpInside)
+    
+    XCTAssertEqual(coordinator.actions, [.start, .navigateToGridPage])
+  }
+  
+  final class MainCoordinatorSpy: MainCoordinator {
+    enum Action {
+      case start
+      case navigateToGridPage
+    }
+    
+    var actions: [Action] = []
+    
+    override func start() {
+      super.start()
+      actions.append(.start)
+    }
+    
+    override func navigateToGridPage() {
+      super.navigateToGridPage()
+      actions.append(.navigateToGridPage)
+    }
+  }
 }
