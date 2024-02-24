@@ -7,11 +7,11 @@
 
 import Foundation
 
-public protocol CancellableTask {
+protocol CancellableTask {
   func cancel()
 }
 
-public protocol HTTPClient {
+protocol HTTPClient {
   typealias Result = Swift.Result<(Data), Error>
 
   func get(from url: URL, completion: @escaping (Result) -> Void) -> CancellableTask?
