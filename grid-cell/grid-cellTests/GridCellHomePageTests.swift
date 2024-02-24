@@ -33,7 +33,6 @@ final class GridCellHomePageTests: XCTestCase {
   }
   
   func test_coordinator_navigateToGridPageCalledWhenMainButtonTapped() {
-    let viewModel = HomeViewModel()
     let rootNavigationController = UINavigationController()
     let coordinator = MainCoordinatorSpy(navigationController: rootNavigationController)
     coordinator.start()
