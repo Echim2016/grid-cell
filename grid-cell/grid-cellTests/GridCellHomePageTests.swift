@@ -16,7 +16,7 @@ final class GridCellHomePageTests: XCTestCase {
       viewModel: viewModel,
       coordinator: nil
     )
-    homeViewController.viewDidLoad()
+    homeViewController.loadViewIfNeeded()
     
     XCTAssertEqual(homeViewController.title, viewModel.navigationBarTitle)
   }
@@ -27,7 +27,7 @@ final class GridCellHomePageTests: XCTestCase {
       viewModel: viewModel,
       coordinator: nil
     )
-    homeViewController.viewDidLoad()
+    homeViewController.loadViewIfNeeded()
     
     XCTAssertEqual(homeViewController.mainButton.title(for: .normal), viewModel.buttonTitle)
   }
