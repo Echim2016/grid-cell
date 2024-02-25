@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class GridItemCellRenderController {
+class GridItemCellRenderController {
   private var cell: GridItemCell? = nil
   private let viewModel: GridItemCellViewModel
   

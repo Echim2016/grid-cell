@@ -54,6 +54,16 @@ final class GridCellGridPageTests: XCTestCase {
       ]
     )
   }
+  
+  func test_cancelItemTask_successfullyGivenValidIndex() {
+    let mockItemsSUT = makeGridItemsSUT()
+    let sut = makeSUT(items: mockItemsSUT.controllers)
+    let validIndex = 0
+    
+    sut.viewModel.cancelItemTask(at: validIndex)
+    
+    XCTAssertEqual(mockItemsSUT.controllers[validIndex].actions, [.cancelLoad])
+  }
 }
 
 extension GridCellGridPageTests {
@@ -85,17 +95,45 @@ extension GridCellGridPageTests {
       return nil
     }
   }
+  
+  final class GridItemCellRenderControllerSpy: GridItemCellRenderController {
+    enum Action {
+      case setupCell
+      case preload
+      case cancelLoad
+    }
+    
+    var actions: [Action] = []
+    
+    override func setupCell(with cell: GridItemCell) {
+      actions.append(.setupCell)
+    }
+    
+    override func preload() {
+      actions.append(.preload)
+    }
+    
+    override func cancelLoad() {
+      actions.append(.cancelLoad)
+    }
+  }
 }
 
 extension GridCellGridPageTests {
-  private func makeSUT() -> (viewModel: GridViewModel, gridLoader: GridLoaderSpy) {
+  private func makeSUT(
+    items: [GridItemCellRenderController] = []
+  ) -> (viewModel: GridViewModel, gridLoader: GridLoaderSpy) {
     let gridLoader = GridLoaderSpy()
     let imageLoader = GridImageLoaderSpy()
-    let viewModel = GridViewModel(gridLoader: gridLoader, imageLoader: imageLoader)
+    let viewModel = GridViewModel(
+      gridLoader: gridLoader,
+      imageLoader: imageLoader,
+      items: items
+    )
     return (viewModel, gridLoader)
   }
   
-  private func makeGridItemsSUT() -> (items: [GridItem], controllers: [GridItemCellRenderController]) {
+  private func makeGridItemsSUT() -> (items: [GridItem], controllers: [GridItemCellRenderControllerSpy]) {
     let items = [
       GridItem(id: 0, title: "Grid-0", thumbnailUrl: URL(string: RemoteAPI.baseUrl)!),
       GridItem(id: 1, title: "Grid-1", thumbnailUrl: URL(string: RemoteAPI.baseUrl)!),
@@ -103,7 +141,7 @@ extension GridCellGridPageTests {
     let imageLoader = GridImageLoaderSpy()
     let controllers = items
       .map {
-        GridItemCellRenderController(viewModel: GridItemCellViewModel(item: $0, imageLoader: imageLoader))
+        GridItemCellRenderControllerSpy(viewModel: GridItemCellViewModel(item: $0, imageLoader: imageLoader))
       }
     
     return (items, controllers)

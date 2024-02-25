@@ -12,11 +12,16 @@ final class GridViewModel {
   let gridLoader: GridLoader
   let imageLoader: GridImageDataLoader
   let disposeBag = DisposeBag()
-  let items = BehaviorSubject<[GridItemCellRenderController]>(value: [])
+  let items: BehaviorSubject<[GridItemCellRenderController]>
   
-  init(gridLoader: GridLoader, imageLoader: GridImageDataLoader) {
+  init(
+    gridLoader: GridLoader,
+    imageLoader: GridImageDataLoader,
+    items: [GridItemCellRenderController] = []
+  ) {
     self.gridLoader = gridLoader
     self.imageLoader = imageLoader
+    self.items = BehaviorSubject<[GridItemCellRenderController]>(value: items)
   }
 
   func loadItems() {
