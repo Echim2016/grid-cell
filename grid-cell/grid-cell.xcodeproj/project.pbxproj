@@ -40,6 +40,7 @@
 		9CBBC5132B887A8F0000EE94 /* GridItemCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC5122B887A8F0000EE94 /* GridItemCellViewModel.swift */; };
 		9CBDC0EA2B8B1F9E00155C21 /* GridCellGridPageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBDC0E92B8B1F9E00155C21 /* GridCellGridPageTests.swift */; };
 		9CBDC0EC2B8B26DC00155C21 /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 9CBDC0EB2B8B26DC00155C21 /* RxTest */; };
+		9CBDC0EF2B8B3B8200155C21 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBDC0EE2B8B3B8200155C21 /* Array+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		9CBBC5102B887A0F0000EE94 /* GridImageFileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridImageFileStore.swift; sourceTree = "<group>"; };
 		9CBBC5122B887A8F0000EE94 /* GridItemCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridItemCellViewModel.swift; sourceTree = "<group>"; };
 		9CBDC0E92B8B1F9E00155C21 /* GridCellGridPageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCellGridPageTests.swift; sourceTree = "<group>"; };
+		9CBDC0EE2B8B3B8200155C21 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 		9CBBC4A42B8724870000EE94 /* grid-cell */ = {
 			isa = PBXGroup;
 			children = (
+				9CBDC0ED2B8B3B6800155C21 /* Extensions */,
 				9CBBC5002B88703F0000EE94 /* Cache */,
 				9CBBC4F52B875EBE0000EE94 /* Networking */,
 				9CBBC4EC2B873F2E0000EE94 /* View */,
@@ -279,6 +282,14 @@
 				9CBBC50E2B88796F0000EE94 /* RemoteGridImageDataLoaderWithCache.swift */,
 			);
 			path = GridImageLoader;
+			sourceTree = "<group>";
+		};
+		9CBDC0ED2B8B3B6800155C21 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9CBDC0EE2B8B3B8200155C21 /* Array+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -428,6 +439,7 @@
 				9CBBC4FD2B87601F0000EE94 /* RemoteGridLoader.swift in Sources */,
 				9CBBC4EE2B873F410000EE94 /* GridItemCell.swift in Sources */,
 				9CBBC4E82B8732B40000EE94 /* GridViewController.swift in Sources */,
+				9CBDC0EF2B8B3B8200155C21 /* Array+Extensions.swift in Sources */,
 				9CBBC4A62B8724870000EE94 /* AppDelegate.swift in Sources */,
 				9CBBC50A2B8876EB0000EE94 /* GridImageLoaderWithFallbackComposite.swift in Sources */,
 				9CBBC5062B8871640000EE94 /* LocalGridImageDataLoader.swift in Sources */,
