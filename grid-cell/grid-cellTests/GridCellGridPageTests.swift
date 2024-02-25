@@ -142,6 +142,23 @@ extension GridCellGridPageTests  {
     XCTAssertEqual(renderController.cell?.renderedSubtitleText, viewModel.subtitle)
   }
   
+  func test_preload_updateCellLabelAfterImageDataLoadedOnFailure() {
+    let imageLoader = GridImageLoaderSpy()
+    let item = makeGridItem()
+    let viewModel = GridItemCellViewModel(item: item, imageLoader: imageLoader)
+    let cell = GridItemCell()
+    let anyImageData = makeAnyImageData()
+    let renderController = GridItemCellRenderControllerSpy(viewModel: viewModel)
+    
+    renderController.setupCell(with: cell)
+    renderController.preload()
+    imageLoader.completeRequestOnFailure(at: 0)
+    
+    XCTAssertNil(renderController.cell?.renderedImage)
+    XCTAssertEqual(renderController.cell?.renderedMainText, viewModel.title)
+    XCTAssertEqual(renderController.cell?.renderedSubtitleText, viewModel.subtitle)
+  }
+  
 }
 
 extension GridCellGridPageTests {
@@ -175,6 +192,11 @@ extension GridCellGridPageTests {
     
     func completeRequest(with data: Data, at index: Int) {
       requests[index](.success(data))
+    }
+    
+    func completeRequestOnFailure(at index: Int) {
+      let error = NSError(domain: "request fail", code: 0)
+      requests[index](.failure(error))
     }
   }
   
