@@ -84,6 +84,7 @@ final class GridCellGridPageTests: XCTestCase {
     sut.viewModel.preloadItem(at: validIndex, cell: cell)
     
     XCTAssertEqual(mockItemsSUT.controllers[safe: validIndex]?.actions, [.setupCell, .preload])
+    XCTAssertEqual(mockItemsSUT.controllers[safe: validIndex]?.cell, cell)
   }
   
   func test_preloadItemTask_controllerNotFoundGivenValidIndex() {
@@ -138,6 +139,7 @@ extension GridCellGridPageTests {
     var actions: [Action] = []
     
     override func setupCell(with cell: GridItemCell) {
+      super.setupCell(with: cell)
       actions.append(.setupCell)
     }
     

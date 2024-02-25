@@ -8,7 +8,7 @@
 import Foundation
 
 class GridItemCellRenderController {
-  private var cell: GridItemCell? = nil
+  private(set) var cell: GridItemCell? = nil
   private let viewModel: GridItemCellViewModel
   
   init(viewModel: GridItemCellViewModel) {
