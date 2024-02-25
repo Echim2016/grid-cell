@@ -110,6 +110,24 @@ final class GridCellGridPageTests: XCTestCase {
   }
 }
 
+// MARK: - Tests for `GridItemCellRenderController`
+extension GridCellGridPageTests  {
+  
+  func test_setupCell_assignCellToRenderControllerSuccessfully() {
+    let imageLoader = GridImageLoaderSpy()
+    let item = makeGridItem()
+    let viewModel = GridItemCellViewModel(item: item, imageLoader: imageLoader)
+    let cell = GridItemCell()
+    let renderController = GridItemCellRenderControllerSpy(viewModel: viewModel)
+    
+    renderController.setupCell(with: cell)
+    
+    XCTAssertEqual(cell, renderController.cell)
+  }
+  
+}
+
+
 extension GridCellGridPageTests {
   final class GridLoaderSpy: GridLoader {
     var requests: [(GridLoader.Result) -> Void] = []
@@ -190,5 +208,9 @@ extension GridCellGridPageTests {
       }
     
     return (items, controllers)
+  }
+  
+  private func makeGridItem() -> GridItem {
+    GridItem(id: 0, title: "Grid-0", thumbnailUrl: URL(string: RemoteAPI.baseUrl)!)
   }
 }
