@@ -42,6 +42,7 @@
 		9CBDC0EC2B8B26DC00155C21 /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 9CBDC0EB2B8B26DC00155C21 /* RxTest */; };
 		9CBDC0EF2B8B3B8200155C21 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBDC0EE2B8B3B8200155C21 /* Array+Extensions.swift */; };
 		9CBDC0F42B8B5D4D00155C21 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBDC0F32B8B5D4D00155C21 /* TestHelpers.swift */; };
+		9CBDC0F62B8B5E9400155C21 /* TestHelper+Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBDC0F52B8B5E9400155C21 /* TestHelper+Loader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		9CBDC0E92B8B1F9E00155C21 /* GridCellGridPageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCellGridPageTests.swift; sourceTree = "<group>"; };
 		9CBDC0EE2B8B3B8200155C21 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		9CBDC0F32B8B5D4D00155C21 /* TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
+		9CBDC0F52B8B5E9400155C21 /* TestHelper+Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestHelper+Loader.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				9CBDC0F32B8B5D4D00155C21 /* TestHelpers.swift */,
+				9CBDC0F52B8B5E9400155C21 /* TestHelper+Loader.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CBDC0F62B8B5E9400155C21 /* TestHelper+Loader.swift in Sources */,
 				9CBDC0EA2B8B1F9E00155C21 /* GridCellGridPageTests.swift in Sources */,
 				9CBBC4BD2B8724890000EE94 /* GridCellHomePageTests.swift in Sources */,
 				9CBDC0F42B8B5D4D00155C21 /* TestHelpers.swift in Sources */,
