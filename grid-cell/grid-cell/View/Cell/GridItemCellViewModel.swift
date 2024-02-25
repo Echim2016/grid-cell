@@ -31,3 +31,9 @@ final class GridItemCellViewModel {
     task = nil
   }
 }
+
+extension GridItemCellViewModel: Equatable {
+  static func == (lhs: GridItemCellViewModel, rhs: GridItemCellViewModel) -> Bool {
+    lhs.title == rhs.title && lhs.subtitle == rhs.subtitle && lhs.imageUrl == rhs.imageUrl
+  }
+}

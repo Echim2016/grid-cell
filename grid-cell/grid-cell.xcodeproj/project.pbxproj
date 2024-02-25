@@ -38,6 +38,8 @@
 		9CBBC50F2B88796F0000EE94 /* RemoteGridImageDataLoaderWithCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC50E2B88796F0000EE94 /* RemoteGridImageDataLoaderWithCache.swift */; };
 		9CBBC5112B887A0F0000EE94 /* GridImageFileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC5102B887A0F0000EE94 /* GridImageFileStore.swift */; };
 		9CBBC5132B887A8F0000EE94 /* GridItemCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBC5122B887A8F0000EE94 /* GridItemCellViewModel.swift */; };
+		9CBDC0EA2B8B1F9E00155C21 /* GridCellGridPageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBDC0E92B8B1F9E00155C21 /* GridCellGridPageTests.swift */; };
+		9CBDC0EC2B8B26DC00155C21 /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 9CBDC0EB2B8B26DC00155C21 /* RxTest */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +90,7 @@
 		9CBBC50E2B88796F0000EE94 /* RemoteGridImageDataLoaderWithCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteGridImageDataLoaderWithCache.swift; sourceTree = "<group>"; };
 		9CBBC5102B887A0F0000EE94 /* GridImageFileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridImageFileStore.swift; sourceTree = "<group>"; };
 		9CBBC5122B887A8F0000EE94 /* GridItemCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridItemCellViewModel.swift; sourceTree = "<group>"; };
+		9CBDC0E92B8B1F9E00155C21 /* GridCellGridPageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCellGridPageTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CBDC0EC2B8B26DC00155C21 /* RxTest in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				9CBBC4BC2B8724890000EE94 /* GridCellHomePageTests.swift */,
+				9CBDC0E92B8B1F9E00155C21 /* GridCellGridPageTests.swift */,
 			);
 			path = "grid-cellTests";
 			sourceTree = "<group>";
@@ -317,6 +322,9 @@
 				9CBBC4BA2B8724890000EE94 /* PBXTargetDependency */,
 			);
 			name = "grid-cellTests";
+			packageProductDependencies = (
+				9CBDC0EB2B8B26DC00155C21 /* RxTest */,
+			);
 			productName = "grid-cellTests";
 			productReference = 9CBBC4B82B8724890000EE94 /* grid-cellTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -445,6 +453,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CBDC0EA2B8B1F9E00155C21 /* GridCellGridPageTests.swift in Sources */,
 				9CBBC4BD2B8724890000EE94 /* GridCellHomePageTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -821,6 +830,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9CBBC4F22B8757B40000EE94 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		9CBDC0EB2B8B26DC00155C21 /* RxTest */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9CBBC4DE2B872FEE0000EE94 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxTest;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

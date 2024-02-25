@@ -36,3 +36,9 @@ final class GridItemCellRenderController {
     cell = nil
   }
 }
+
+extension GridItemCellRenderController: Equatable {
+  static func == (lhs: GridItemCellRenderController, rhs: GridItemCellRenderController) -> Bool {
+    lhs.cell === rhs.cell && lhs.viewModel == rhs.viewModel
+  }
+}
