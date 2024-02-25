@@ -75,6 +75,17 @@ final class GridCellGridPageTests: XCTestCase {
     XCTAssertNil(mockItemsSUT.controllers[safe: invalidIndex])
   }
   
+  func test_cancelItemTask_doNothingWhenItemsBeingDisposed() {
+    let mockItemsSUT = makeGridItemsSUT()
+    let sut = makeSUT(items: mockItemsSUT.controllers)
+    let validIndex = 0
+    
+    sut.viewModel.items.dispose()
+    sut.viewModel.cancelItemTask(at: validIndex)
+    
+    XCTAssertEqual(mockItemsSUT.controllers[safe: validIndex]?.actions, [])
+  }
+  
   func test_preloadItemTask_successfullyGivenValidIndex() {
     let mockItemsSUT = makeGridItemsSUT()
     let sut = makeSUT(items: mockItemsSUT.controllers)
