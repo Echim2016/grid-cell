@@ -11,11 +11,7 @@ import XCTest
 
 final class GridItemCellRenderControllerTests: XCTestCase {
   func test_setupCell_assignCellToRenderControllerSuccessfully() {
-    let imageLoader = GridImageLoaderSpy()
-    let item = makeGridItem()
-    let viewModel = GridItemCellViewModel(item: item, imageLoader: imageLoader)
-    let cell = GridItemCell()
-    let renderController = GridItemCellRenderControllerSpy(viewModel: viewModel)
+    let (renderController, cell, _, _) = makeSUT()
     
     renderController.setupCell(with: cell)
     
@@ -23,13 +19,9 @@ final class GridItemCellRenderControllerTests: XCTestCase {
   }
   
   func test_preload_updateCellAfterImageDataLoadedSuccessfully() {
-    let imageLoader = GridImageLoaderSpy()
-    let item = makeGridItem()
-    let viewModel = GridItemCellViewModel(item: item, imageLoader: imageLoader)
-    let cell = GridItemCell()
+    let (renderController, cell, viewModel, imageLoader) = makeSUT()
     let anyImageData = makeAnyImageData()
-    let renderController = GridItemCellRenderControllerSpy(viewModel: viewModel)
-    
+
     renderController.setupCell(with: cell)
     renderController.preload()
     imageLoader.completeRequest(with: anyImageData, at: 0)
@@ -40,11 +32,7 @@ final class GridItemCellRenderControllerTests: XCTestCase {
   }
   
   func test_preload_updateCellLabelAfterImageDataLoadedOnFailure() {
-    let imageLoader = GridImageLoaderSpy()
-    let item = makeGridItem()
-    let viewModel = GridItemCellViewModel(item: item, imageLoader: imageLoader)
-    let cell = GridItemCell()
-    let renderController = GridItemCellRenderControllerSpy(viewModel: viewModel)
+    let (renderController, cell, viewModel, imageLoader) = makeSUT()
     
     renderController.setupCell(with: cell)
     renderController.preload()
@@ -56,13 +44,9 @@ final class GridItemCellRenderControllerTests: XCTestCase {
   }
   
   func test_cancelLoad_releaseTaskAndCellAfterTaskCancelled() {
-    let imageLoader = GridImageLoaderSpy()
-    let item = makeGridItem()
+    let (renderController, cell, viewModel, imageLoader) = makeSUT()
     let task = TaskSpy()
-    let viewModel = GridItemCellViewModel(item: item, imageLoader: imageLoader)
     viewModel.task = task
-    let cell = GridItemCell()
-    let renderController = GridItemCellRenderControllerSpy(viewModel: viewModel)
     
     renderController.setupCell(with: cell)
     renderController.cancelLoad()
@@ -70,5 +54,21 @@ final class GridItemCellRenderControllerTests: XCTestCase {
     XCTAssertNil(viewModel.task)
     XCTAssertNil(renderController.cell)
     XCTAssertEqual(task.actions, [.cancel])
+  }
+}
+
+extension GridItemCellRenderControllerTests {
+  func makeSUT() -> (
+    controller: GridItemCellRenderControllerSpy,
+    cell: GridItemCell,
+    viewModel: GridItemCellViewModel,
+    imageLoader: GridImageLoaderSpy
+  ) {
+    let imageLoader = GridImageLoaderSpy()
+    let item = makeGridItem()
+    let viewModel = GridItemCellViewModel(item: item, imageLoader: imageLoader)
+    let cell = GridItemCell()
+    let renderController = GridItemCellRenderControllerSpy(viewModel: viewModel)
+    return (renderController, cell, viewModel, imageLoader)
   }
 }
