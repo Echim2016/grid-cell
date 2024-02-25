@@ -282,13 +282,4 @@ extension GridCellGridPageTests {
     
     return (items, controllers)
   }
-  
-  private func makeGridItem() -> GridItem {
-    GridItem(id: 0, title: "Grid-0", thumbnailUrl: URL(string: RemoteAPI.baseUrl)!)
-  }
-  
-  private func makeAnyImageData() -> Data {
-    UIImage(systemName: "star")!
-      .pngData()!
-  }
 }
