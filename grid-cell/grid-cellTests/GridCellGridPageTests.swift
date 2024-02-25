@@ -74,6 +74,28 @@ final class GridCellGridPageTests: XCTestCase {
     
     XCTAssertNil(mockItemsSUT.controllers[safe: invalidIndex])
   }
+  
+  func test_preloadItemTask_successfullyGivenValidIndex() {
+    let mockItemsSUT = makeGridItemsSUT()
+    let sut = makeSUT(items: mockItemsSUT.controllers)
+    let cell = GridItemCell()
+    let validIndex = 0
+    
+    sut.viewModel.preloadItem(at: validIndex, cell: cell)
+    
+    XCTAssertEqual(mockItemsSUT.controllers[safe: validIndex]?.actions, [.setupCell, .preload])
+  }
+  
+  func test_preloadItemTask_controllerNotFoundGivenValidIndex() {
+    let mockItemsSUT = makeGridItemsSUT()
+    let sut = makeSUT(items: mockItemsSUT.controllers)
+    let cell = GridItemCell()
+    let invalidIndex = 99
+    
+    sut.viewModel.preloadItem(at: invalidIndex, cell: cell)
+    
+    XCTAssertNil(mockItemsSUT.controllers[safe: invalidIndex])
+  }
 }
 
 extension GridCellGridPageTests {
