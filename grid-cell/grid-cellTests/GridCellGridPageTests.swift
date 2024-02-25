@@ -125,8 +125,24 @@ extension GridCellGridPageTests  {
     XCTAssertEqual(cell, renderController.cell)
   }
   
+  func test_preload_updateCellAfterImageDataLoadedSuccessfully() {
+    let imageLoader = GridImageLoaderSpy()
+    let item = makeGridItem()
+    let viewModel = GridItemCellViewModel(item: item, imageLoader: imageLoader)
+    let cell = GridItemCell()
+    let anyImageData = makeAnyImageData()
+    let renderController = GridItemCellRenderControllerSpy(viewModel: viewModel)
+    
+    renderController.setupCell(with: cell)
+    renderController.preload()
+    imageLoader.completeRequest(with: anyImageData, at: 0)
+    
+    XCTAssertEqual(renderController.cell?.renderedImage?.hashValue, anyImageData.hashValue)
+    XCTAssertEqual(renderController.cell?.renderedMainText, viewModel.title)
+    XCTAssertEqual(renderController.cell?.renderedSubtitleText, viewModel.subtitle)
+  }
+  
 }
-
 
 extension GridCellGridPageTests {
   final class GridLoaderSpy: GridLoader {
@@ -156,6 +172,10 @@ extension GridCellGridPageTests {
       requests.append(completion)
       return nil
     }
+    
+    func completeRequest(with data: Data, at index: Int) {
+      requests[index](.success(data))
+    }
   }
   
   final class GridItemCellRenderControllerSpy: GridItemCellRenderController {
@@ -173,6 +193,7 @@ extension GridCellGridPageTests {
     }
     
     override func preload() {
+      super.preload()
       actions.append(.preload)
     }
     
@@ -212,5 +233,10 @@ extension GridCellGridPageTests {
   
   private func makeGridItem() -> GridItem {
     GridItem(id: 0, title: "Grid-0", thumbnailUrl: URL(string: RemoteAPI.baseUrl)!)
+  }
+  
+  private func makeAnyImageData() -> Data {
+    UIImage(systemName: "star")!
+      .pngData()!
   }
 }

@@ -9,6 +9,18 @@ import UIKit
 
 final class GridItemCell: UICollectionViewCell {
   
+  var renderedImage: Data? {
+    baseImageView.image?.pngData()
+  }
+  
+  var renderedMainText: String? {
+    mainLabel.text
+  }
+  
+  var renderedSubtitleText: String? {
+    subtitleLabel.text
+  }
+  
   private lazy var baseImageView: UIImageView = {
     let imageView = UIImageView()
     imageView.translatesAutoresizingMaskIntoConstraints = false
