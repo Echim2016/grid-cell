@@ -13,40 +13,26 @@ import RxTest
 final class GridCellGridPageTests: XCTestCase {
  
   func test_loadItems_deliverControllersAfterGridItemsLoadedSuccessfully() {
-    let gridLoader = GridLoaderSpy()
-    let imageLoader = GridImageLoaderSpy()
-    let viewModel = GridViewModel(gridLoader: gridLoader, imageLoader: imageLoader)
-    let mockItems = getMockGridItems()
-    let controllers = mockItems
-      .map {
-        GridItemCellRenderController(
-          viewModel: GridItemCellViewModel(item: $0, imageLoader: imageLoader)
-        )
-      }
+    let sut = makeSUT()
+    let mockItemsSUT = makeGridItemsSUT()
+    
     let testScheduler = TestScheduler(initialClock: 0)
     let testObserver = testScheduler.createObserver([GridItemCellRenderController].self)
     
-    viewModel.items
+    sut.viewModel.items
       .subscribe(testObserver)
-      .disposed(by: viewModel.disposeBag)
+      .disposed(by: sut.viewModel.disposeBag)
     
-    viewModel.loadItems()
-    gridLoader.completeRequest(with: mockItems, at: 0)
+    sut.viewModel.loadItems()
+    sut.gridLoader.completeRequest(with: mockItemsSUT.items, at: 0)
     
     XCTAssertEqual(
       testObserver.events,
       [
         .next(0, []),
-        .next(0, controllers)
+        .next(0, mockItemsSUT.controllers)
       ]
     )
-  }
-  
-  func getMockGridItems() -> [GridItem] {
-    [
-      GridItem(id: 0, title: "Grid-0", thumbnailUrl: URL(string: RemoteAPI.baseUrl)!),
-      GridItem(id: 1, title: "Grid-1", thumbnailUrl: URL(string: RemoteAPI.baseUrl)!),
-    ]
   }
 }
 
@@ -73,5 +59,28 @@ extension GridCellGridPageTests {
       requests.append(completion)
       return nil
     }
+  }
+}
+
+extension GridCellGridPageTests {
+  private func makeSUT() -> (viewModel: GridViewModel, gridLoader: GridLoaderSpy) {
+    let gridLoader = GridLoaderSpy()
+    let imageLoader = GridImageLoaderSpy()
+    let viewModel = GridViewModel(gridLoader: gridLoader, imageLoader: imageLoader)
+    return (viewModel, gridLoader)
+  }
+  
+  private func makeGridItemsSUT() -> (items: [GridItem], controllers: [GridItemCellRenderController]) {
+    let items = [
+      GridItem(id: 0, title: "Grid-0", thumbnailUrl: URL(string: RemoteAPI.baseUrl)!),
+      GridItem(id: 1, title: "Grid-1", thumbnailUrl: URL(string: RemoteAPI.baseUrl)!),
+    ]
+    let imageLoader = GridImageLoaderSpy()
+    let controllers = items
+      .map {
+        GridItemCellRenderController(viewModel: GridItemCellViewModel(item: $0, imageLoader: imageLoader))
+      }
+    
+    return (items, controllers)
   }
 }
