@@ -34,6 +34,26 @@ final class GridCellGridPageTests: XCTestCase {
       ]
     )
   }
+  
+  func test_loadItems_deliverControllersAfterGridItemsLoadedOnFailure() {
+    let sut = makeSUT()   
+    let testScheduler = TestScheduler(initialClock: 0)
+    let testObserver = testScheduler.createObserver([GridItemCellRenderController].self)
+    
+    sut.viewModel.items
+      .subscribe(testObserver)
+      .disposed(by: sut.viewModel.disposeBag)
+    
+    sut.viewModel.loadItems()
+    sut.gridLoader.completeRequestOnFailure(at: 0)
+    
+    XCTAssertEqual(
+      testObserver.events,
+      [
+        .next(0, []),
+      ]
+    )
+  }
 }
 
 extension GridCellGridPageTests {
@@ -46,6 +66,11 @@ extension GridCellGridPageTests {
     
     func completeRequest(with items: [GridItem], at index: Int) {
       requests[index](.success(items))
+    }
+    
+    func completeRequestOnFailure(at index: Int) {
+      let error = NSError(domain: "request fail", code: 0)
+      requests[index](.failure(error))
     }
   }
   
