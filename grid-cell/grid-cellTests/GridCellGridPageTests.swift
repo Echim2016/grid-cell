@@ -159,6 +159,23 @@ extension GridCellGridPageTests  {
     XCTAssertEqual(renderController.cell?.renderedSubtitleText, viewModel.subtitle)
   }
   
+  func test_cancelLoad_releaseTaskAndCellAfterTaskCancelled() {
+    let imageLoader = GridImageLoaderSpy()
+    let item = makeGridItem()
+    let task = TaskSpy()
+    let viewModel = GridItemCellViewModel(item: item, imageLoader: imageLoader)
+    viewModel.task = task
+    let cell = GridItemCell()
+    let renderController = GridItemCellRenderControllerSpy(viewModel: viewModel)
+    
+    renderController.setupCell(with: cell)
+    renderController.cancelLoad()
+    
+    XCTAssertNil(viewModel.task)
+    XCTAssertNil(renderController.cell)
+    XCTAssertEqual(task.actions, [.cancel])
+  }
+  
 }
 
 extension GridCellGridPageTests {
@@ -220,7 +237,20 @@ extension GridCellGridPageTests {
     }
     
     override func cancelLoad() {
+      super.cancelLoad()
       actions.append(.cancelLoad)
+    }
+  }
+  
+  final class TaskSpy: CancellableTask {
+    enum Action {
+      case cancel
+    }
+    
+    var actions: [Action] = []
+    
+    func cancel() {
+      actions.append(.cancel)
     }
   }
 }
