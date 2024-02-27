@@ -17,7 +17,7 @@ Render grid cells using local image caching strategy.
 - Apply `Composite Pattern` for local/remote image loading task
 - Bind actions using `RxSwift`
 - Send API requests using `Alamofire`
-- Demostrate unit tests for `HomeViewModel`, `GridViewModel`, and `GridItemCellRenderController`
+- Demonstrate unit tests for `HomeViewModel`, `GridViewModel`, and `GridItemCellRenderController`
 
 
 ## Libraries
