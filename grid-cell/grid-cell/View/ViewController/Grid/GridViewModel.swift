@@ -12,11 +12,16 @@ final class GridViewModel {
   let gridLoader: GridLoader
   let imageLoader: GridImageDataLoader
   let disposeBag = DisposeBag()
-  let items = BehaviorSubject<[GridItemCellRenderController]>(value: [])
-  
-  init(gridLoader: GridLoader, imageLoader: GridImageDataLoader) {
+  let items: BehaviorSubject<[GridItemCellRenderController]>
+
+  init(
+    gridLoader: GridLoader,
+    imageLoader: GridImageDataLoader,
+    items: [GridItemCellRenderController] = []
+  ) {
     self.gridLoader = gridLoader
     self.imageLoader = imageLoader
+    self.items = BehaviorSubject<[GridItemCellRenderController]>(value: items)
   }
 
   func loadItems() {
@@ -33,25 +38,24 @@ final class GridViewModel {
       }
     }
   }
-  
+
   func preloadItem(at index: Int, cell: GridItemCell) {
     guard let controller = getController(index: index) else { return }
     controller.setupCell(with: cell)
     controller.preload()
   }
-  
+
   func cancelItemTask(at index: Int) {
     guard let controller = getController(index: index) else { return }
     controller.cancelLoad()
   }
-  
+
   private func getController(index: Int) -> GridItemCellRenderController? {
     do {
-      let controller = try items.value()[index]
-      return controller
+      let items = try items.value()
+      return items[safe: index]
     } catch {
       return nil
     }
   }
 }
-

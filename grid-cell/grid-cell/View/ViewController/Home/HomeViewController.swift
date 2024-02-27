@@ -13,7 +13,7 @@ final class HomeViewController: UIViewController {
   let viewModel: HomeViewModel
   let coordinator: MainCoordinator?
 
-  private lazy var mainButton: UIButton = {
+  lazy var mainButton: UIButton = {
     let button = UIButton(type: .system)
     button.translatesAutoresizingMaskIntoConstraints = false
     button.backgroundColor = UIColor(red: 124.0 / 255.0, green: 76.0 / 255.0, blue: 36.0 / 255.0, alpha: 1.0)

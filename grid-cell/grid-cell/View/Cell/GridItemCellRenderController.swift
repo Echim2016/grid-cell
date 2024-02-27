@@ -7,8 +7,8 @@
 
 import Foundation
 
-final class GridItemCellRenderController {
-  private var cell: GridItemCell? = nil
+class GridItemCellRenderController {
+  private(set) var cell: GridItemCell? = nil
   private let viewModel: GridItemCellViewModel
   
   init(viewModel: GridItemCellViewModel) {
@@ -34,5 +34,11 @@ final class GridItemCellRenderController {
   func cancelLoad() {
     viewModel.cancelLoadImageTask()
     cell = nil
+  }
+}
+
+extension GridItemCellRenderController: Equatable {
+  static func == (lhs: GridItemCellRenderController, rhs: GridItemCellRenderController) -> Bool {
+    lhs.cell === rhs.cell && lhs.viewModel == rhs.viewModel
   }
 }
